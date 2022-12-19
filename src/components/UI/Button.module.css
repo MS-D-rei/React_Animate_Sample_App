@@ -1,0 +1,13 @@
+.BaseButton {
+  border: 1px solid #521751;
+  font: inherit;
+  padding: 8px;
+  background-color: #521751;
+  color: white;
+  cursor: pointer;
+}
+
+.BaseButton:hover,
+.BaseButton:active {
+  background-color: #fa923f;
+}
