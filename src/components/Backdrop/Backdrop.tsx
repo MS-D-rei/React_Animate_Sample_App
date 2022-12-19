@@ -1,5 +1,15 @@
 import styles from '@/components/Backdrop/Backdrop.module.css';
 
-export default function Backdrop() {
-  return <div className={styles.Backdrop}></div>;
+interface BackdropProps {
+  isOpen: boolean;
+  close: () => void;
+}
+
+export default function Backdrop({ isOpen, close }: BackdropProps) {
+  const BackdropStyles = [
+    styles.Backdrop,
+    isOpen ? styles.BackdropOpen : styles.BackdropClosed,
+  ].join(' ');
+
+  return <div className={BackdropStyles} onClick={close}></div>;
 }

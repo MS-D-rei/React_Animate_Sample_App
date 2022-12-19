@@ -1,10 +1,23 @@
 import styles from '@/components/Modal/Modal.module.css';
+import Button from '../UI/Button';
 
-export default function Modal() {
+interface ModalProps {
+  isOpen: boolean;
+  close: () => void;
+}
+
+export default function Modal({ isOpen, close }: ModalProps) {
+  const modalStyles = [
+    styles.Modal,
+    isOpen ? styles.ModalOpen : styles.ModalClosed,
+  ].join(' ');
   return (
-    <div>
-      <h1 className={styles.Modal}>Modal</h1>
-      <button className={styles.Button}>Dismiss</button>
+    <div className={modalStyles}>
+      <h1>Modal</h1>
+      {/* <button className={styles.Button}>Dismiss</button> */}
+      <Button className="BaseButton" onClick={close}>
+        Dismiss
+      </Button>
     </div>
   );
 }
